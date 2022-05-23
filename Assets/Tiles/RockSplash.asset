@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 13b75c95f34a00d4e8c04f76b73312e6, type: 3}
-  m_Name: Water
+  m_Name: RockSplash
   m_EditorClassIdentifier: 
   m_AnimatedSprites:
-  - {fileID: 2007486319, guid: 1bd223ef6fbc17142b57cf0df929c955, type: 3}
-  - {fileID: 991266241, guid: 1bd223ef6fbc17142b57cf0df929c955, type: 3}
-  - {fileID: 1331448692, guid: 1bd223ef6fbc17142b57cf0df929c955, type: 3}
-  - {fileID: 1694309489, guid: 1bd223ef6fbc17142b57cf0df929c955, type: 3}
-  - {fileID: -2145136888, guid: 1bd223ef6fbc17142b57cf0df929c955, type: 3}
-  - {fileID: -632212157, guid: 1bd223ef6fbc17142b57cf0df929c955, type: 3}
+  - {fileID: 157955222, guid: 46af24debe003e1489e27a14850f4d7d, type: 3}
+  - {fileID: -1749186988, guid: 46af24debe003e1489e27a14850f4d7d, type: 3}
+  - {fileID: 660110414, guid: 46af24debe003e1489e27a14850f4d7d, type: 3}
+  - {fileID: 975016653, guid: 46af24debe003e1489e27a14850f4d7d, type: 3}
+  - {fileID: 195916728, guid: 46af24debe003e1489e27a14850f4d7d, type: 3}
+  - {fileID: 1152320539, guid: 46af24debe003e1489e27a14850f4d7d, type: 3}
   m_MinSpeed: 7
   m_MaxSpeed: 7
   m_AnimationStartTime: 0
