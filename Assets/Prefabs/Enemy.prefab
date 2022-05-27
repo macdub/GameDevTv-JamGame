@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2578308752351750229}
   - component: {fileID: 872867196}
   - component: {fileID: -1007454602362265685}
+  - component: {fileID: 2596293598712525452}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -150,8 +151,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firePoint: {fileID: 5269543482745633591}
   cannonballPrefab: {fileID: 5060003766355315195, guid: 844ab8c3ec4174041a47147e5da79d56, type: 3}
-  rateOfFire: 3
-  shotSpeed: 20
+  rateOfFire: 1
+  shotSpeed: 10
+  tagCompare: Player
+  _canShoot: 1
 --- !u!114 &-1007454602362265685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -165,6 +168,42 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 50
+  moveSpeed: 7
+  startLocation: {x: 0, y: 0}
+  targetLocation: {x: 0, y: 0}
+  sprites:
+  - {fileID: 1850464240, guid: de50e2582f856cc4cb847b201b2caec6, type: 3}
+  - {fileID: 1158677924, guid: de50e2582f856cc4cb847b201b2caec6, type: 3}
+  - {fileID: -1346025029, guid: de50e2582f856cc4cb847b201b2caec6, type: 3}
+  - {fileID: -1810726791, guid: de50e2582f856cc4cb847b201b2caec6, type: 3}
+  - {fileID: 1341702291, guid: de50e2582f856cc4cb847b201b2caec6, type: 3}
+  - {fileID: -148966828, guid: de50e2582f856cc4cb847b201b2caec6, type: 3}
+  - {fileID: 642913996, guid: de50e2582f856cc4cb847b201b2caec6, type: 3}
+  - {fileID: -1186678350, guid: de50e2582f856cc4cb847b201b2caec6, type: 3}
+--- !u!114 &2596293598712525452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2578308752351750189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b93901fd94b5bb545931f0f65484baf5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  detectionTag: Player
+  entityNearby: 0
+  detectorOrigin: {fileID: 2578308752351750191}
+  detectorSize: 6
+  detectorOriginOffset: {x: 0, y: 0}
+  detectionDelay: 0.3
+  detectorLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
+  gizmoIdleColor: {r: 0, g: 1, b: 0, a: 0.23529412}
+  gizmoDetectedColor: {r: 1, g: 0, b: 0, a: 0.23529412}
+  showGizmos: 1
 --- !u!1 &6884600137466622784
 GameObject:
   m_ObjectHideFlags: 0

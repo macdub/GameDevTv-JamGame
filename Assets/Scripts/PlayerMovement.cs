@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     private SpriteRenderer _playerRenderer;
     private Rigidbody2D _playerRigidbody;
     private Vector2 _moveInput;
-    private static readonly Vector2 NorthVector = new Vector2(0, -1);
+    private static readonly Vector2 SouthVector = new Vector2(0, -1);
 
     private void Start()
     {
@@ -25,7 +25,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Sail()
     {
-        var velocity = new Vector2(_moveInput.x * moveSpeed, _moveInput.y * moveSpeed);
+        var velocity = _moveInput * moveSpeed;// Vector2(_moveInput.x * moveSpeed, _moveInput.y * moveSpeed);
         _playerRigidbody.velocity = velocity;
     }
 
@@ -41,7 +41,7 @@ public class PlayerMovement : MonoBehaviour
         // 6 : South -> 0, 1
         // 7 : South East -> 1, 1
 
-        var moveAngle = Vector2.Angle(_moveInput, NorthVector);
+        var moveAngle = Vector2.Angle(_moveInput, SouthVector);
 
         if (_moveInput.x > 0 && _moveInput.y > 0 && Between(moveAngle, 112.5f, 157.5f))
             _playerRenderer.sprite = sprites[1]; // north east
@@ -70,7 +70,6 @@ public class PlayerMovement : MonoBehaviour
     private void OnMove(InputValue value)
     {
         _moveInput = value.Get<Vector2>();
-        Debug.Log($"VECTOR: {_moveInput} VECTOR ANGLE: {Vector2.Angle(_moveInput, NorthVector)}");
         FlipSprite();
     }
 }

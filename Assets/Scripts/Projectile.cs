@@ -6,15 +6,17 @@ public class Projectile : MonoBehaviour
     [SerializeField] private float damage = 10f;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private GameObject impactEffect;
+    private string _tagCompare = "Enemy";
     private const float ShotLife = 2.0f;
 
     private void OnTriggerEnter2D(Collider2D col)
     {
         var t = transform;
-        if (col.CompareTag("Enemy"))
+        
+        if (col.CompareTag(_tagCompare))
         {
-            Debug.Log($"HIT ENEMY: {col.name}");
-            col.gameObject.GetComponent<Enemy>().TakeDamage(damage);
+            Debug.Log($"HIT: {col.name}");
+            col.gameObject.GetComponent<Entity>().TakeDamage(damage);
             Instantiate(impactEffect, t.position, t.rotation);
             Destroy(gameObject);
         }
@@ -30,13 +32,10 @@ public class Projectile : MonoBehaviour
         }
     }
 
-    public void SetFireDirection(Vector2 direction)
+    public void SetShotSettings(Vector2 direction, float inSpeed, string tagCompare)
     {
-        rb.velocity = direction.normalized * speed;
-    }
-
-    public void SetShotSpeed(float inSpeed)
-    {
+        _tagCompare = tagCompare;
         speed = inSpeed;
+        rb.velocity = direction.normalized * speed;
     }
 }

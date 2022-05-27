@@ -12,10 +12,11 @@ GameObject:
   - component: {fileID: 2578308752351750190}
   - component: {fileID: 2578308752351750226}
   - component: {fileID: 2578308752351750225}
-  - component: {fileID: 2578308752351750229}
+  - component: {fileID: 6989217730709741010}
   - component: {fileID: 2578308752351750228}
   - component: {fileID: 872867196}
-  m_Layer: 0
+  - component: {fileID: 2031012778945143515}
+  m_Layer: 8
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -79,7 +80,7 @@ SpriteRenderer:
   m_SortingLayerID: -257387725
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1158677924, guid: de50e2582f856cc4cb847b201b2caec6, type: 3}
+  m_Sprite: {fileID: -215090959, guid: f3acbee16c654fd44b50211404e6ae50, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -141,8 +142,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &2578308752351750229
-BoxCollider2D:
+--- !u!58 &6989217730709741010
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -154,19 +155,9 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.029665053, y: -0.009888411}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4, y: 4}
-    newSize: {x: 4, y: 4}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_Offset: {x: 0.009113252, y: -0.6470371}
   serializedVersion: 2
-  m_Size: {x: 0.77638555, y: 1.0532613}
-  m_EdgeRadius: 0
+  m_Radius: 0.36751145
 --- !u!114 &2578308752351750228
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -179,16 +170,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a14223b4c2b35584988f431f3cabdcea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  moveSpeed: 10
   sprites:
-  - {fileID: 1850464240, guid: de50e2582f856cc4cb847b201b2caec6, type: 3}
-  - {fileID: 1158677924, guid: de50e2582f856cc4cb847b201b2caec6, type: 3}
-  - {fileID: -1346025029, guid: de50e2582f856cc4cb847b201b2caec6, type: 3}
-  - {fileID: -1810726791, guid: de50e2582f856cc4cb847b201b2caec6, type: 3}
-  - {fileID: 1341702291, guid: de50e2582f856cc4cb847b201b2caec6, type: 3}
-  - {fileID: -148966828, guid: de50e2582f856cc4cb847b201b2caec6, type: 3}
-  - {fileID: 642913996, guid: de50e2582f856cc4cb847b201b2caec6, type: 3}
-  - {fileID: -1186678350, guid: de50e2582f856cc4cb847b201b2caec6, type: 3}
+  - {fileID: 14081229, guid: f3acbee16c654fd44b50211404e6ae50, type: 3}
+  - {fileID: 1662382847, guid: f3acbee16c654fd44b50211404e6ae50, type: 3}
+  - {fileID: -1215497287, guid: f3acbee16c654fd44b50211404e6ae50, type: 3}
+  - {fileID: 871537151, guid: f3acbee16c654fd44b50211404e6ae50, type: 3}
+  - {fileID: -1440871874, guid: f3acbee16c654fd44b50211404e6ae50, type: 3}
+  - {fileID: -215090959, guid: f3acbee16c654fd44b50211404e6ae50, type: 3}
+  - {fileID: 1036559485, guid: f3acbee16c654fd44b50211404e6ae50, type: 3}
+  - {fileID: -1023112687, guid: f3acbee16c654fd44b50211404e6ae50, type: 3}
 --- !u!114 &872867196
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -203,6 +194,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firePoint: {fileID: 5269543482745633591}
   cannonballPrefab: {fileID: 5060003766355315195, guid: 844ab8c3ec4174041a47147e5da79d56, type: 3}
+  rateOfFire: 0.5
+  shotSpeed: 10
+  tagCompare: Enemy
+  _canShoot: 1
+--- !u!114 &2031012778945143515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2578308752351750189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7c53a90c1b18ae4bb09d5a1b6e634b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  playerLocation: {x: 0, y: 0}
 --- !u!1 &6884600137466622784
 GameObject:
   m_ObjectHideFlags: 0
@@ -212,7 +221,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5269543482745633591}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -227,7 +236,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6884600137466622784}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.06, y: -0.06, z: 0}
+  m_LocalPosition: {x: -0.02, y: -0.54, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

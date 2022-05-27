@@ -8,8 +8,9 @@ public class Cannon : MonoBehaviour
     [SerializeField] private GameObject cannonballPrefab;
     [SerializeField] private float rateOfFire = 3.0f;
     [SerializeField] private float shotSpeed = 20.0f;
+    [SerializeField] private string tagCompare = "";
     private Vector2 _shotDirection;
-    private bool _canShoot = true;
+    public bool _canShoot = true;
 
     private void Update()
     {
@@ -32,8 +33,7 @@ public class Cannon : MonoBehaviour
             _canShoot = false;
             var go = Instantiate(cannonballPrefab, firePoint.position, firePoint.rotation);
             var projectile = go.GetComponent<Projectile>();
-            projectile.SetFireDirection(_shotDirection);
-            projectile.SetShotSpeed(shotSpeed);
+            projectile.SetShotSettings(_shotDirection, shotSpeed, tagCompare);
             yield return new WaitForSeconds(rateOfFire);
             _canShoot = true;
         }
@@ -42,5 +42,10 @@ public class Cannon : MonoBehaviour
     private void OnFire(InputValue value)
     {
         _shotDirection = value.Get<Vector2>();
+    }
+
+    public void SetFireDirection(Vector2 target)
+    {
+        _shotDirection = target;
     }
 }
