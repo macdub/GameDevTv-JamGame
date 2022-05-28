@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -1007454602362265685}
   - component: {fileID: 2596293598712525452}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: Sloop
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -152,7 +152,9 @@ MonoBehaviour:
   firePoint: {fileID: 5269543482745633591}
   cannonballPrefab: {fileID: 5060003766355315195, guid: 844ab8c3ec4174041a47147e5da79d56, type: 3}
   rateOfFire: 1
+  burstRate: 0.1
   shotSpeed: 10
+  numShots: 1
   tagCompare: Player
   _canShoot: 1
 --- !u!114 &-1007454602362265685
@@ -168,7 +170,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 50
-  moveSpeed: 7
+  moveSpeed: 3
   startLocation: {x: 0, y: 0}
   targetLocation: {x: 0, y: 0}
   sprites:

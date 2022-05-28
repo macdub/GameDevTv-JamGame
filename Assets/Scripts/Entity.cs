@@ -3,7 +3,8 @@ using UnityEngine;
 
 public class Entity : MonoBehaviour
 {
-    [SerializeField] private float health;
+    [SerializeField] protected float maxHealth;
+    [SerializeField] protected float health;
     
     
     
@@ -25,5 +26,17 @@ public class Entity : MonoBehaviour
     {
         return Comparer<T>.Default.Compare(item, start) >= 0
                && Comparer<T>.Default.Compare(item, end) <= 0;
+    }
+
+    public float MaxHealth
+    {
+        get => maxHealth;
+        protected set => maxHealth = value;
+    }
+
+    public float CurrentHealth
+    {
+        get => health;
+        protected set => health = value;
     }
 }

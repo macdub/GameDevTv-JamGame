@@ -170,7 +170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a14223b4c2b35584988f431f3cabdcea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 10
+  moveSpeed: 5
   sprites:
   - {fileID: 14081229, guid: f3acbee16c654fd44b50211404e6ae50, type: 3}
   - {fileID: 1662382847, guid: f3acbee16c654fd44b50211404e6ae50, type: 3}
@@ -195,7 +195,9 @@ MonoBehaviour:
   firePoint: {fileID: 5269543482745633591}
   cannonballPrefab: {fileID: 5060003766355315195, guid: 844ab8c3ec4174041a47147e5da79d56, type: 3}
   rateOfFire: 0.5
+  burstRate: 0.1
   shotSpeed: 10
+  numShots: 1
   tagCompare: Enemy
   _canShoot: 1
 --- !u!114 &2031012778945143515
