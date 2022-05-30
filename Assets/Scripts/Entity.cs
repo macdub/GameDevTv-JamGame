@@ -5,8 +5,14 @@ public class Entity : MonoBehaviour
 {
     [SerializeField] protected float maxHealth;
     [SerializeField] protected float health;
-    
-    
+    [SerializeField] protected bool canDie = true;
+
+    private LevelManager _levelManager;
+
+    private void Awake()
+    {
+        _levelManager = FindObjectOfType<LevelManager>();
+    }
     
     public void TakeDamage(float damage)
     {
@@ -19,6 +25,9 @@ public class Entity : MonoBehaviour
     {
         // transition to death animation
         // destroy object
+        if(CompareTag("Player") && canDie)
+            _levelManager.LoadGameOver();
+        
         Destroy(gameObject);
     }
 

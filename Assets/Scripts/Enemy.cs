@@ -13,6 +13,7 @@ public class Enemy : Entity
     private static readonly Vector2 SouthVector = new Vector2(0, -1);
     private Detector _detector;
     private Cannon _cannon;
+    private bool _autoMove;
     
     private void Start()
     {
@@ -25,18 +26,30 @@ public class Enemy : Entity
 
     private void Update()
     {
-        if (_detector.Target is null)
+        if (_detector.MoveToDetected)
         {
-            // move back to start location
-            _moveDirection = Vector2.Distance(transform.position, startLocation) <= 0.5f ? 
-                Vector2.zero : startLocation - (Vector2)transform.position;
-            _cannon.SetFireDirection(Vector2.zero);
+            if (_detector.Target is null)
+            {
+                // move back to start location
+                _moveDirection = Vector2.Distance(transform.position, startLocation) <= 0.5f ? 
+                    Vector2.zero : startLocation - (Vector2)transform.position;
+            }
+            else
+            {
+                var distance = Vector2.Distance(transform.position, _detector.Target.gameObject.transform.position);
+                targetLocation = distance <= _detector.DetectorSize / 2f
+                    ? Vector2.zero
+                    : _detector.DirectionToTarget;
+                _moveDirection = targetLocation;
+            }
         }
+        
+        if (_detector.Target is null)
+            _cannon.SetFireDirection(Vector2.zero);
         else
         {
             targetLocation = _detector.DirectionToTarget;
             _cannon.SetFireDirection(targetLocation);
-            _moveDirection = targetLocation;
         }
 
         Sail();
@@ -46,6 +59,13 @@ public class Enemy : Entity
         var velocity = _moveDirection.normalized * moveSpeed;
         _rigidbody.velocity = velocity;
         FlipSprite();
+    }
+
+    public void MoveTo(Vector2 location)
+    {
+        targetLocation = location;
+        _moveDirection = (targetLocation - (Vector2)transform.position).normalized;
+        _autoMove = true;
     }
 
     private void FlipSprite()

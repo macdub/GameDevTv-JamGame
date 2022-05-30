@@ -1,5 +1,4 @@
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -12,9 +11,15 @@ public class Cannon : MonoBehaviour
     [SerializeField] private float shotSpeed = 20.0f;
     [SerializeField] private int numShots = 1;
     [SerializeField] private string tagCompare = "";
-    private Vector2 _shotDirection;
+    [SerializeField] private Vector2 _shotDirection;
     public bool _canShoot = true;
+    private AudioPlayer _audioPlayer;
 
+    private void Awake()
+    {
+        _audioPlayer = FindObjectOfType<AudioPlayer>();
+    }
+    
     private void Update()
     {
         Shoot();
@@ -36,24 +41,16 @@ public class Cannon : MonoBehaviour
             _canShoot = false;
             for (var i = numShots; i > 0; i--)
             {
-                Debug.Log($"I: {i}");
                 //StartCoroutine(RoundRate());
                 var go = Instantiate(cannonballPrefab, firePoint.position, firePoint.rotation);
                 var projectile = go.GetComponent<Projectile>();
                 projectile.SetShotSettings(_shotDirection, shotSpeed, tagCompare);
+                _audioPlayer.PlayShootingClip();
                 yield return new WaitForSeconds(burstRate);
             }
 
             yield return new WaitForSeconds(rateOfFire);
             _canShoot = true;
-        }
-
-        IEnumerator RoundRate()
-        {
-            var go = Instantiate(cannonballPrefab, firePoint.position, firePoint.rotation);
-            var projectile = go.GetComponent<Projectile>();
-            projectile.SetShotSettings(_shotDirection, shotSpeed, tagCompare);
-            yield return new WaitForSeconds(0.1f);
         }
     }
 

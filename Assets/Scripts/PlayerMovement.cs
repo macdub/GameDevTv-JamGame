@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -8,25 +9,36 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float moveSpeed = 10f;
     [SerializeField] private Sprite[] sprites;
     private SpriteRenderer _playerRenderer;
+    private Animator _animator;
     private Rigidbody2D _playerRigidbody;
-    private Vector2 _moveInput;
+    private Vector2 _moveDirection;
+    private Vector2 _moveToLocation;
+    private bool _autoMove;
     private static readonly Vector2 SouthVector = new Vector2(0, -1);
 
-    private void Start()
+    private void Awake()
     {
         _playerRigidbody = GetComponent<Rigidbody2D>();
         _playerRenderer = GetComponent<SpriteRenderer>();
+        _animator = GetComponent<Animator>();
     }
 
     private void Update()
     {
+        if (_autoMove && Vector2.Distance(transform.position, _moveToLocation) <= 0.5)
+        {
+            _moveDirection = Vector2.zero;
+            _autoMove = false;
+        }
+
         Sail();
     }
 
     private void Sail()
     {
-        var velocity = _moveInput * moveSpeed;// Vector2(_moveInput.x * moveSpeed, _moveInput.y * moveSpeed);
+        var velocity = _moveDirection * moveSpeed;// Vector2(_moveInput.x * moveSpeed, _moveInput.y * moveSpeed);
         _playerRigidbody.velocity = velocity;
+        FlipSprite();
     }
 
     private void FlipSprite()
@@ -41,23 +53,23 @@ public class PlayerMovement : MonoBehaviour
         // 6 : South -> 0, 1
         // 7 : South East -> 1, 1
 
-        var moveAngle = Vector2.Angle(_moveInput, SouthVector);
+        var moveAngle = Vector2.Angle(_moveDirection, SouthVector);
 
-        if (_moveInput.x > 0 && _moveInput.y > 0 && Between(moveAngle, 112.5f, 157.5f))
+        if (_moveDirection.x > 0 && _moveDirection.y > 0 && Between(moveAngle, 112.5f, 157.5f))
             _playerRenderer.sprite = sprites[1]; // north east
-        else if (_moveInput.x > 0 && _moveInput.y < 0 && Between(moveAngle, 22.5f, 67.5f))
+        else if (_moveDirection.x > 0 && _moveDirection.y < 0 && Between(moveAngle, 22.5f, 67.5f))
             _playerRenderer.sprite = sprites[7]; // south east
-        else if (_moveInput.x < 0 && _moveInput.y < 0 && Between(moveAngle, 22.5f, 67.5f))
+        else if (_moveDirection.x < 0 && _moveDirection.y < 0 && Between(moveAngle, 22.5f, 67.5f))
             _playerRenderer.sprite = sprites[5]; // south west
-        else if (_moveInput.x < 0 && _moveInput.y > 0 && Between(moveAngle, 112.5f, 157.5f))
+        else if (_moveDirection.x < 0 && _moveDirection.y > 0 && Between(moveAngle, 112.5f, 157.5f))
             _playerRenderer.sprite = sprites[3]; // north west
-        else if (_moveInput.y > 0 && Between(moveAngle, 157.5f, 202.5))
+        else if (_moveDirection.y > 0 && Between(moveAngle, 157.5f, 202.5))
             _playerRenderer.sprite = sprites[2]; // north
-        else if (_moveInput.y < 0 && Between(moveAngle, -22.5f, 22.5f))
+        else if (_moveDirection.y < 0 && Between(moveAngle, -22.5f, 22.5f))
             _playerRenderer.sprite = sprites[6]; // south
-        else if (_moveInput.x < 0 && Between(moveAngle, 67.5f, 112.5f))
+        else if (_moveDirection.x < 0 && Between(moveAngle, 67.5f, 112.5f))
             _playerRenderer.sprite = sprites[4]; // west
-        else if (_moveInput.x > 0 && Between(moveAngle, 67.5f, 112.5f))
+        else if (_moveDirection.x > 0 && Between(moveAngle, 67.5f, 112.5f))
             _playerRenderer.sprite = sprites[0]; // east
     }
 
@@ -69,7 +81,18 @@ public class PlayerMovement : MonoBehaviour
     
     private void OnMove(InputValue value)
     {
-        _moveInput = value.Get<Vector2>();
-        FlipSprite();
+        _moveDirection = value.Get<Vector2>();
+    }
+
+    public void MoveTo(Vector2 location)
+    {
+        _moveToLocation = location;
+        _moveDirection = (_moveToLocation - (Vector2)transform.position).normalized;
+        _autoMove = true;
+    }
+
+    public Sprite GetSpriteAt(int i)
+    {
+        return i > sprites.Length ? null : sprites[i];
     }
 }

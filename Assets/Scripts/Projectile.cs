@@ -8,22 +8,31 @@ public class Projectile : MonoBehaviour
     [SerializeField] private GameObject impactEffect;
     private string _tagCompare = "Enemy";
     private const float ShotLife = 2.0f;
+    private AudioPlayer _audioPlayer;
+
+    private void Awake()
+    {
+        _audioPlayer = FindObjectOfType<AudioPlayer>();
+    }
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        var t = transform;
+        var pos = transform.position;
+        var rot = transform.rotation;
         
         if (col.CompareTag(_tagCompare))
         {
             Debug.Log($"HIT: {col.name}");
             col.gameObject.GetComponent<Entity>().TakeDamage(damage);
-            Instantiate(impactEffect, t.position, t.rotation);
+            Instantiate(impactEffect, pos, rot);
+            _audioPlayer.PlayHitClip();
             Destroy(gameObject);
         }
         else if (col.CompareTag("Obstacle"))
         {
             Debug.Log($"HIT OBSTACLE: {col.name}");
-            Instantiate(impactEffect, t.position, t.rotation);
+            Instantiate(impactEffect, pos, rot);
+            _audioPlayer.PlayHitClip();
             Destroy(gameObject);
         }
         else

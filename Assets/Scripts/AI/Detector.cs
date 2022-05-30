@@ -3,9 +3,11 @@ using UnityEngine;
 
 public class Detector : MonoBehaviour
 {
+    [SerializeField] private bool detectionEnabled = true;
+    [SerializeField] private bool moveToDetected = true;
     [SerializeField] private string detectionTag = "Player";
     [SerializeField] private bool entityNearby;
-    public Vector2 DirectionToTarget => target.transform.position - detectorOrigin.position;
+    public Vector2 DirectionToTarget => (target.transform.position - detectorOrigin.position).normalized;
 
     [Header("Overlap Parameters")]
     [SerializeField] private Transform detectorOrigin;
@@ -30,6 +32,16 @@ public class Detector : MonoBehaviour
             entityNearby = target is not null;
         }
     }
+
+    public float DetectorSize => detectorSize;
+    
+    public bool MoveToDetected => moveToDetected;
+
+    public void ToggleDetection()
+    {
+        detectionEnabled = !detectionEnabled;
+    }
+    
     private void Start()
     {
         StartCoroutine(DetectionCoroutine());
@@ -44,6 +56,7 @@ public class Detector : MonoBehaviour
 
     private void PerformDetection()
     {
+        if (!detectionEnabled) return;
         var collider = Physics2D.OverlapCircle(
             (Vector2) detectorOrigin.position + detectorOriginOffset,
             detectorSize,
