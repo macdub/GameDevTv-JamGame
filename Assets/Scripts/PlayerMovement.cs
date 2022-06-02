@@ -38,7 +38,8 @@ public class PlayerMovement : MonoBehaviour
     {
         var velocity = _moveDirection * moveSpeed;// Vector2(_moveInput.x * moveSpeed, _moveInput.y * moveSpeed);
         _playerRigidbody.velocity = velocity;
-        FlipSprite();
+        //FlipSprite();
+        ScaleFog();
     }
 
     private void FlipSprite()
@@ -73,6 +74,30 @@ public class PlayerMovement : MonoBehaviour
             _playerRenderer.sprite = sprites[0]; // east
     }
 
+    private void ScaleFog()
+    {
+        if (_moveDirection == Vector2.zero) return;
+        var moveAngle = Vector2.Angle(_moveDirection, SouthVector);
+        var fogs = FindObjectsOfType<ParticleSystem>();
+        
+        if (Between(moveAngle, 157.5f, 202.5f) || Between(moveAngle, -22.5f, 22.5f))
+        {
+            foreach (var ps in fogs)
+            {
+                var psShape = ps.shape;
+                psShape.radius = 0.6f;
+            }
+        }
+        else
+        {
+            foreach (var ps in fogs)
+            {
+                var psShape = ps.shape;
+                psShape.radius = 1.33f;
+            }
+        }
+    }
+
     private static bool Between<T>(T item, T start, T end)
     {
         return Comparer<T>.Default.Compare(item, start) >= 0
@@ -82,6 +107,10 @@ public class PlayerMovement : MonoBehaviour
     private void OnMove(InputValue value)
     {
         _moveDirection = value.Get<Vector2>();
+
+        if (_moveDirection == Vector2.zero) return;
+        _animator.SetFloat("XInput", _moveDirection.x);
+        _animator.SetFloat("YInput", _moveDirection.y);
     }
 
     public void MoveTo(Vector2 location)
