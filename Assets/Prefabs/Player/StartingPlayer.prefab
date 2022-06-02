@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 2578308752351750228}
   - component: {fileID: 872867196}
   - component: {fileID: 2031012778945143515}
+  - component: {fileID: 5971922098005849768}
   m_Layer: 8
   m_Name: StartingPlayer
   m_TagString: Player
@@ -199,6 +200,8 @@ MonoBehaviour:
   shotSpeed: 10
   numShots: 1
   tagCompare: Enemy
+  _shotDirection: {x: 0, y: 0}
+  cannonType: 0
   _canShoot: 1
 --- !u!114 &2031012778945143515
 MonoBehaviour:
@@ -214,7 +217,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   health: 100
+  canDie: 1
   playerLocation: {x: 0, y: 0}
+--- !u!95 &5971922098005849768
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2578308752351750189}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 47be9bd11c3243b48810932cccc3eb76, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &6884600137466622784
 GameObject:
   m_ObjectHideFlags: 0

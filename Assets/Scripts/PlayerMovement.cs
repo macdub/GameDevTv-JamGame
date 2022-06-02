@@ -117,6 +117,8 @@ public class PlayerMovement : MonoBehaviour
     {
         _moveToLocation = location;
         _moveDirection = (_moveToLocation - (Vector2)transform.position).normalized;
+        _animator.SetFloat("XInput", _moveDirection.x);
+        _animator.SetFloat("YInput", _moveDirection.y);
         _autoMove = true;
     }
 

@@ -22,7 +22,7 @@ public class Projectile : MonoBehaviour
         
         if (col.CompareTag(_tagCompare))
         {
-            Debug.Log($"HIT: {col.name}");
+            //Debug.Log($"HIT: {col.name}");
             col.gameObject.GetComponent<Entity>().TakeDamage(damage);
             Instantiate(impactEffect, pos, rot);
             _audioPlayer.PlayHitClip();
@@ -30,7 +30,7 @@ public class Projectile : MonoBehaviour
         }
         else if (col.CompareTag("Obstacle"))
         {
-            Debug.Log($"HIT OBSTACLE: {col.name}");
+            //Debug.Log($"HIT OBSTACLE: {col.name}");
             Instantiate(impactEffect, pos, rot);
             _audioPlayer.PlayHitClip();
             Destroy(gameObject);

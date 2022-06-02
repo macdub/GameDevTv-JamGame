@@ -1,4 +1,5 @@
 using Cinemachine;
+using UnityEditor;
 using UnityEngine;
 
 public class SpawnPlayer : MonoBehaviour
@@ -24,6 +25,7 @@ public class SpawnPlayer : MonoBehaviour
     public void CreatePlayer()
     {
         var go = Instantiate(playerPrefab, transform.position, transform.rotation);
+        go.GetComponent<Animator>().SetBool("isDutchman", true);
         _followCam.GetComponent<CinemachineVirtualCamera>().m_Follow = go.transform;
     }
 }

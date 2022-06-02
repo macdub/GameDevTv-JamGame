@@ -141,11 +141,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firePoint: {fileID: 5269543482745633591}
   cannonballPrefab: {fileID: 5060003766355315195, guid: 844ab8c3ec4174041a47147e5da79d56, type: 3}
-  rateOfFire: 1
+  rateOfFire: 2
   burstRate: 0.1
   shotSpeed: 10
-  numShots: 1
+  numShots: 4
   tagCompare: Player
+  _shotDirection: {x: 0, y: 0}
+  cannonType: 1
   _canShoot: 1
 --- !u!114 &-1007454602362265685
 MonoBehaviour:
@@ -224,7 +226,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6884600137466622784}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.72, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
