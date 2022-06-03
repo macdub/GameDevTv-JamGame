@@ -7,6 +7,7 @@ TagManager:
   - Obstacle
   - Enemy
   - Projectile
+  - Item
   layers:
   - Default
   - TransparentFX
@@ -15,7 +16,7 @@ TagManager:
   - Water
   - UI
   - 
-  - 
+  - Item
   - Player
   - Background
   - 
@@ -52,6 +53,9 @@ TagManager:
     locked: 0
   - name: Rocks
     uniqueID: 390101691
+    locked: 0
+  - name: Items
+    uniqueID: 2400254315
     locked: 0
   - name: Player
     uniqueID: 4037579571

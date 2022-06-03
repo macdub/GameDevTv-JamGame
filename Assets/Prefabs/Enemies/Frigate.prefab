@@ -108,7 +108,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -257387725
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 2099408013, guid: 24630dcf2194165468448e4e86d0efd5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -170,7 +170,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1194f580ff30cd94e93d284f2f6ef87d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 0
   health: 70
+  canDie: 1
+  healthItemPrefab: {fileID: 5171471693767237387, guid: 8aa09967de658c145bb4650268d73a4f, type: 3}
+  numOfHealthItemDroped: 5
   moveSpeed: 3
   startLocation: {x: 0, y: 0}
   targetLocation: {x: 0, y: 0}
@@ -202,6 +206,8 @@ MonoBehaviour:
   shotSpeed: 10
   numShots: 2
   tagCompare: Player
+  _shotDirection: {x: 0, y: 0}
+  cannonType: 0
   _canShoot: 1
 --- !u!114 &-418103147528304637
 MonoBehaviour:
@@ -215,6 +221,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b93901fd94b5bb545931f0f65484baf5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  detectionEnabled: 1
+  moveToDetected: 1
   detectionTag: Player
   entityNearby: 0
   detectorOrigin: {fileID: 4114801906527830486}
