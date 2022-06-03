@@ -173,7 +173,7 @@ MonoBehaviour:
   maxHealth: 0
   health: 70
   canDie: 1
-  healthItemPrefab: {fileID: 5171471693767237387, guid: 8aa09967de658c145bb4650268d73a4f, type: 3}
+  healthItemPrefab: {fileID: 5171471693767237387, guid: aeef3fb495c5b8247bc9d6e4169cd236, type: 3}
   numOfHealthItemDroped: 5
   moveSpeed: 3
   startLocation: {x: 0, y: 0}

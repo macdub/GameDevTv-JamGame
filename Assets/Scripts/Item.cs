@@ -22,10 +22,9 @@ public class Item : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D col)
     {
 
-        Collider2D col = collision.collider;
         if (col.CompareTag("Player"))
         {
             col.gameObject.GetComponent<Player>().TakeItem(itemType, itemValue);
