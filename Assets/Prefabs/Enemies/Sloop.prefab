@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 2596293598712525452}
   - component: {fileID: 1966578641}
   - component: {fileID: 1966578642}
+  - component: {fileID: 3492856909691745883}
   m_Layer: 0
   m_Name: Sloop
   m_TagString: Enemy
@@ -166,8 +167,6 @@ MonoBehaviour:
   maxHealth: 0
   health: 50
   canDie: 1
-  healthItemPrefab: {fileID: 0}
-  numOfHealthItemDroped: 3
   startLocation: {x: 0, y: 0}
   targetLocation: {x: 0, y: 0}
   sprites:
@@ -239,6 +238,21 @@ NavMeshAgent:
   m_BaseOffset: 2
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &3492856909691745883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2578308752351750189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dc14a5c1aa15b845982d5851024984e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemDropPrefabs:
+  - {fileID: 5171471693767237387, guid: aeef3fb495c5b8247bc9d6e4169cd236, type: 3}
+  - {fileID: 5171471693767237387, guid: aeef3fb495c5b8247bc9d6e4169cd236, type: 3}
 --- !u!1 &6884600137466622784
 GameObject:
   m_ObjectHideFlags: 0

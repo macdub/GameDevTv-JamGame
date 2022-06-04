@@ -22,14 +22,13 @@ public class ItemDropper : MonoBehaviour
         }
         else if (_itemCount > 1) 
         {
-            float radius = 1.5f;
             float angle = 2*Mathf.PI / _itemCount;
 
             for( int i=0; i<_itemCount; i++ ) 
             {
                 Vector2 itemPosition = new Vector2(
-                        transform.position.x + radius * Mathf.Cos(i * angle),
-                        transform.position.y + radius * Mathf.Sin(i * angle)
+                        transform.position.x + _radius * Mathf.Cos(i * angle),
+                        transform.position.y + _radius * Mathf.Sin(i * angle)
                 );
 
                 var item = Instantiate(

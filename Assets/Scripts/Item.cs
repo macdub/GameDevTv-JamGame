@@ -5,9 +5,9 @@ using UnityEngine;
 public enum ItemType {
     Health,
     //weapons,
-    sailor,
-    marines,
-    spacemarines
+    Sailor,
+    Marines,
+    Spacemarines
 }
 
 public class Item : MonoBehaviour
