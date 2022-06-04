@@ -1,27 +1,27 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Enemy : Entity
 {
-    [SerializeField] private float moveSpeed = 10f;
     [SerializeField] private Vector2 startLocation;
     [SerializeField] private Vector2 targetLocation;
     [SerializeField] private Sprite[] sprites;
 
     private Vector2 _moveDirection;
-    private Rigidbody2D _rigidbody;
     private SpriteRenderer _spriteRenderer;
     private static readonly Vector2 SouthVector = new Vector2(0, -1);
     private Detector _detector;
     private Cannon _cannon;
     private bool _autoMove;
+    private NavMeshAgent _navMeshAgent;
     
     private void Start()
     {
         startLocation = transform.position;
         _detector = GetComponent<Detector>();
         _cannon = GetComponent<Cannon>();
-        _rigidbody = GetComponent<Rigidbody2D>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
+        _navMeshAgent = GetComponent<NavMeshAgent>();
     }
 
     private void Update()
@@ -31,15 +31,16 @@ public class Enemy : Entity
             if (_detector.Target is null)
             {
                 // move back to start location
-                _moveDirection = Vector2.Distance(transform.position, startLocation) <= 0.5f ? 
-                    Vector2.zero : startLocation - (Vector2)transform.position;
+                _moveDirection = Vector2.Distance(transform.position, startLocation) <= 0.05f
+                    ? transform.position
+                    : startLocation;
             }
             else
             {
                 var distance = Vector2.Distance(transform.position, _detector.Target.gameObject.transform.position);
                 targetLocation = distance <= _detector.DetectorSize / 2f
-                    ? Vector2.zero
-                    : _detector.DirectionToTarget;
+                    ? transform.position
+                    : _detector.Target.transform.position;
                 _moveDirection = targetLocation;
             }
         }
@@ -56,8 +57,7 @@ public class Enemy : Entity
     }
     private void Sail()
     {
-        var velocity = _moveDirection.normalized * moveSpeed;
-        _rigidbody.velocity = velocity;
+        _navMeshAgent.SetDestination(_moveDirection);
         FlipSprite();
     }
 
@@ -68,6 +68,7 @@ public class Enemy : Entity
         _autoMove = true;
     }
 
+    // this needs to be updated to use the animation setup
     private void FlipSprite()
     {
         // 8 directions
