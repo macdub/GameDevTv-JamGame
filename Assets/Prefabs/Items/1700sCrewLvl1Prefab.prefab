@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 5171471693767237390}
   - component: {fileID: 5171471693767237391}
   - component: {fileID: 5171471693767237388}
-  - component: {fileID: 5171471693767237425}
   - component: {fileID: 5171471693767237424}
   - component: {fileID: 5171471693767237427}
+  - component: {fileID: 7382785244193487965}
   m_Layer: 7
   m_Name: 1700sCrewLvl1Prefab
   m_TagString: Item
@@ -108,20 +108,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &5171471693767237425
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5171471693767237387}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2da865291d27fc94fad98eac04b9c7c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemType: 1
-  itemValue: 1
 --- !u!50 &5171471693767237424
 Rigidbody2D:
   serializedVersion: 4
@@ -159,3 +145,17 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.1
+--- !u!114 &7382785244193487965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5171471693767237387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0797a656f229f334aab15b58b5c8ded6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemType: 1
+  itemValue: 1
