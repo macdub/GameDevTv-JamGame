@@ -165,6 +165,7 @@ MonoBehaviour:
   maxHealth: 50
   health: 50
   canDie: 1
+  deadBody: {fileID: 3684701245029480219, guid: bea523d6de0bec14a979d0886f2c727e, type: 3}
   startLocation: {x: 0, y: 0}
   targetLocation: {x: 0, y: 0}
   sprites:

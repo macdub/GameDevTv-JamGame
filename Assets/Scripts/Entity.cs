@@ -6,6 +6,8 @@ public class Entity : MonoBehaviour
     [SerializeField] protected float maxHealth;
     [SerializeField] protected float health;
     [SerializeField] protected bool canDie = true;
+    
+    [SerializeField] protected GameObject deadBody;
 
     private LevelManager _levelManager;
     private ItemDropper _itemDropper;
@@ -34,8 +36,10 @@ public class Entity : MonoBehaviour
             _itemDropper.DropItems();
         }
 
+        if (deadBody != null) {
+            Instantiate(deadBody, transform.position, transform.rotation);
+        }
         Destroy(gameObject);
-        
     }
 
     protected static bool Between<T>(T item, T start, T end)
