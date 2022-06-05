@@ -10,6 +10,7 @@ public enum ItemType {
     Spacemarines
 }
 
+[RequireComponent(typeof(Rigidbody2D),typeof(CircleCollider2D))]
 public class Item : MonoBehaviour
 {   
     [SerializeField] protected ItemType itemType;

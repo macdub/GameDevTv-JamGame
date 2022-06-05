@@ -4,9 +4,9 @@ public class Player : Entity
 {
     [SerializeField] private Vector2 playerLocation;
 
-    private int _sailorCrewLvl = 0;
-    private int _marinesCrewLvl = 0;
-    private int _spaceMarinesCrewLvl = 0;
+    [SerializeField] private int _sailorCrewLvl = 0;
+    [SerializeField] private int _marinesCrewLvl = 0;
+    [SerializeField] private int _spaceMarinesCrewLvl = 0;
 
     private void Update()
     {
