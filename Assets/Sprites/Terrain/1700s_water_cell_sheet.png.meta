@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0644f6afdf5d9384eb4570196570ea43
+guid: 296c97bd3c8a9f0418a92acea2b3f7f6
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -116,7 +116,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 1700s_health_type2_0
+      name: 1700s_water_cell_sheet_0
       rect:
         serializedVersion: 2
         x: 0
@@ -130,14 +130,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6b5557d97d1c1ce4c84d381c391e39fe
-      internalID: -1247395306
+      spriteID: 860efd965142dca49b259079feb0c0f6
+      internalID: -1822194065
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 1700s_health_type2_1
+      name: 1700s_water_cell_sheet_1
       rect:
         serializedVersion: 2
         x: 32
@@ -151,14 +151,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 069768f3a6ceb304fa87338094055334
-      internalID: 216403712
+      spriteID: 33eea963fa4d8d142862ef2fef38523a
+      internalID: -1419420180
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 1700s_health_type2_2
+      name: 1700s_water_cell_sheet_2
       rect:
         serializedVersion: 2
         x: 64
@@ -172,14 +172,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5a505d72b0bd86f49835f1a831f5d1c8
-      internalID: -982603524
+      spriteID: d7eafe20062d4164692523d328e2a452
+      internalID: 706819541
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 1700s_health_type2_3
+      name: 1700s_water_cell_sheet_3
       rect:
         serializedVersion: 2
         x: 96
@@ -193,14 +193,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cf36cf4358894964bbc0beb174a3c837
-      internalID: -1172166543
+      spriteID: 57c693a0e90e0554385c4d3efa788bde
+      internalID: 28079119
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 1700s_health_type2_4
+      name: 1700s_water_cell_sheet_4
       rect:
         serializedVersion: 2
         x: 128
@@ -214,8 +214,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 895f2471a0b58d14b99ecde961fcc7aa
-      internalID: -1872207413
+      spriteID: 50ce6f2ac51141a46b73bfcdf5d0faec
+      internalID: 1463823964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1700s_water_cell_sheet_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 346ede808afca3141b71c8a7264197a6
+      internalID: -1967408920
       vertices: []
       indices: 
       edges: []
@@ -231,11 +252,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      1700s_health_type2_0: -1247395306
-      1700s_health_type2_4: -1872207413
-      1700s_health_type2_3: -1172166543
-      1700s_health_type2_1: 216403712
-      1700s_health_type2_2: -982603524
+      1700s_water_cell_sheet_4: 1463823964
+      1700s_water_cell_sheet_0: -1822194065
+      1700s_water_cell_sheet_2: 706819541
+      1700s_water_cell_sheet_1: -1419420180
+      1700s_water_cell_sheet_3: 28079119
+      1700s_water_cell_sheet_5: -1967408920
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 13b75c95f34a00d4e8c04f76b73312e6, type: 3}
-  m_Name: Water_Alt
+  m_Name: 1700s_water
   m_EditorClassIdentifier: 
   m_AnimatedSprites:
   - {fileID: -1822194065, guid: 296c97bd3c8a9f0418a92acea2b3f7f6, type: 3}
@@ -19,8 +19,8 @@ MonoBehaviour:
   - {fileID: 28079119, guid: 296c97bd3c8a9f0418a92acea2b3f7f6, type: 3}
   - {fileID: 1463823964, guid: 296c97bd3c8a9f0418a92acea2b3f7f6, type: 3}
   - {fileID: -1967408920, guid: 296c97bd3c8a9f0418a92acea2b3f7f6, type: 3}
-  m_MinSpeed: 7
-  m_MaxSpeed: 7
+  m_MinSpeed: 0
+  m_MaxSpeed: 1
   m_AnimationStartTime: 0
   m_AnimationStartFrame: 0
   m_TileColliderType: 0
