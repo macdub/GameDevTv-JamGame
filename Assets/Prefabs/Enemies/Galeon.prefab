@@ -16,6 +16,8 @@ GameObject:
   - component: {fileID: -1007454602362265685}
   - component: {fileID: 2596293598712525452}
   - component: {fileID: -783143647091546236}
+  - component: {fileID: 1322335707218035078}
+  - component: {fileID: 2457893016312684266}
   m_Layer: 0
   m_Name: Galeon
   m_TagString: Enemy
@@ -168,6 +170,7 @@ MonoBehaviour:
   deadBody: {fileID: 3684701245029480219, guid: bea523d6de0bec14a979d0886f2c727e, type: 3}
   startLocation: {x: 0, y: 0}
   targetLocation: {x: 0, y: 0}
+  moveSpeed: 0
   sprites:
   - {fileID: 538164463, guid: f6b4544c79230e845b488b0abdd54efb, type: 3}
   - {fileID: -1131663237, guid: f6b4544c79230e845b488b0abdd54efb, type: 3}
@@ -222,6 +225,40 @@ MonoBehaviour:
   - {fileID: 3978512919740962857, guid: fbf27ba783520a24d8009c78d0d33d98, type: 3}
   - {fileID: 5171471693767237387, guid: aeef3fb495c5b8247bc9d6e4169cd236, type: 3}
   - {fileID: 5171471693767237387, guid: e27168c04157ca5479de68cb40777b3c, type: 3}
+--- !u!195 &1322335707218035078
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2578308752351750189}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 3
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 6
+  m_BaseOffset: 3
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &2457893016312684266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2578308752351750189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37cb4c038b0e4774bc6b2c3ac1a7b970, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6884600137466622784
 GameObject:
   m_ObjectHideFlags: 0
