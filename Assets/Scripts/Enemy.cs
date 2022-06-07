@@ -15,14 +15,23 @@ public class Enemy : Entity
     private Cannon _cannon;
     private bool _autoMove;
     private NavMeshAgent _navMeshAgent;
-    
-    private void Start()
+
+    private void Awake()
     {
-        startLocation = transform.position;
         _detector = GetComponent<Detector>();
         _cannon = GetComponent<Cannon>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _navMeshAgent = GetComponent<NavMeshAgent>();
+
+        // add a NavMeshHandler if we have a NavMeshAgent
+        if (_navMeshAgent is not null && GetComponent<NavMeshHandler>() is null)
+            gameObject.AddComponent<NavMeshHandler>();
+
+    }
+    
+    private void Start()
+    {
+        startLocation = transform.position;
     }
 
     private void Update()
