@@ -46,4 +46,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shootingClip: {fileID: 8300000, guid: f3960b9f64fe0544fa34ffd432a24580, type: 3}
   hitClip: {fileID: 8300000, guid: 5f5743be2bed210419fbe4f067298dfc, type: 3}
+  hpClip: {fileID: 8300000, guid: 718437a5a47ec274f88e94f78678d09f, type: 3}
+  crewClip: {fileID: 8300000, guid: c859da49a0c4c724a9db33ecff5a3efc, type: 3}
   fxVolume: 1

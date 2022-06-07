@@ -5,6 +5,7 @@ public class Enemy : Entity
 {
     [SerializeField] private Vector2 startLocation;
     [SerializeField] private Vector2 targetLocation;
+    [SerializeField] private float moveSpeed;
     [SerializeField] private Sprite[] sprites;
 
     private Vector2 _moveDirection;
@@ -57,6 +58,7 @@ public class Enemy : Entity
     }
     private void Sail()
     {
+        _navMeshAgent.speed = moveSpeed;
         _navMeshAgent.SetDestination(_moveDirection);
         FlipSprite();
     }

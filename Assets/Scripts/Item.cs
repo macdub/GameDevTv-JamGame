@@ -17,20 +17,19 @@ public class Item : MonoBehaviour
     [SerializeField] protected int itemValue;
 
     private Rigidbody2D _rb;
+    private AudioPlayer _audioPlayer;
 
     private void Awake() 
     {
         _rb = GetComponent<Rigidbody2D>();
+        _audioPlayer = FindObjectOfType<AudioPlayer>();
     }
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-
-        if (col.CompareTag("Player"))
-        {
-            col.gameObject.GetComponent<Player>().TakeItem(itemType, itemValue);
-            //_audioPlayer.PlayDropClip()
-            Destroy(gameObject);
-        }
+        if (!col.CompareTag("Player")) return;
+        col.gameObject.GetComponent<Player>().TakeItem(itemType, itemValue);
+        _audioPlayer.PlayDropClip(itemType);
+        Destroy(gameObject);
     }
 }
