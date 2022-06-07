@@ -62,12 +62,6 @@ public class AudioPlayer : MonoBehaviour
         PlayClip(clip, fxVolume);
     }
 
-    public void PlayCrewClip()
-    {
-        if (crewClip is null) return;
-        PlayClip(crewClip, fxVolume);
-    }
-
     private void PlayClip(AudioClip clip, float volume)
     {
         AudioSource.PlayClipAtPoint(clip, _cameraPos, volume);
