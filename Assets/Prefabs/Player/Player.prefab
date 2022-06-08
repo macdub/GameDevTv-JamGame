@@ -81,7 +81,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -257387725
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 14081229, guid: f3acbee16c654fd44b50211404e6ae50, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -196,14 +196,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firePoint: {fileID: 5269543482745633591}
-  cannonballPrefab: {fileID: 5060003766355315195, guid: 844ab8c3ec4174041a47147e5da79d56, type: 3}
+  shotPrefab: {fileID: 5060003766355315195, guid: 844ab8c3ec4174041a47147e5da79d56, type: 3}
   rateOfFire: 0.5
   burstRate: 0.1
-  shotSpeed: 10
   numShots: 1
+  shotSpeed: 10
   tagCompare: Enemy
-  _shotDirection: {x: 0, y: 0}
-  _canShoot: 1
+  cannonType: 0
 --- !u!114 &2031012778945143515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -216,10 +215,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7c53a90c1b18ae4bb09d5a1b6e634b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 0
+  maxHealth: 100
   health: 100
   canDie: 1
+  deadBody: {fileID: 0}
   playerLocation: {x: 0, y: 0}
+  _sailorCrewLvl: 0
+  _marinesCrewLvl: 0
+  _spaceMarinesCrewLvl: 0
 --- !u!95 &4311943081651427583
 Animator:
   serializedVersion: 4
@@ -280,7 +283,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1165947389690468402, guid: b0f48ed2e4f52ef48b67bb38ceb7a248, type: 3}
       propertyPath: m_SortingLayer
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1165947389690468402, guid: b0f48ed2e4f52ef48b67bb38ceb7a248, type: 3}
       propertyPath: m_SortingLayerID
@@ -292,7 +295,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3930726216489028754, guid: b0f48ed2e4f52ef48b67bb38ceb7a248, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.36
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3930726216489028754, guid: b0f48ed2e4f52ef48b67bb38ceb7a248, type: 3}
       propertyPath: m_LocalPosition.y
@@ -358,7 +361,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3930726216489028754, guid: b0f48ed2e4f52ef48b67bb38ceb7a248, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.36
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3930726216489028754, guid: b0f48ed2e4f52ef48b67bb38ceb7a248, type: 3}
       propertyPath: m_LocalPosition.y

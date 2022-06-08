@@ -172,7 +172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1194f580ff30cd94e93d284f2f6ef87d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 0
+  maxHealth: 70
   health: 70
   canDie: 1
   deadBody: {fileID: 0}
@@ -201,15 +201,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firePoint: {fileID: 1040006184639744114}
-  cannonballPrefab: {fileID: 5060003766355315195, guid: 844ab8c3ec4174041a47147e5da79d56, type: 3}
+  shotPrefab: {fileID: 5060003766355315195, guid: 844ab8c3ec4174041a47147e5da79d56, type: 3}
   rateOfFire: 1
   burstRate: 0.1
-  shotSpeed: 10
   numShots: 2
+  shotSpeed: 10
   tagCompare: Player
-  _shotDirection: {x: 0, y: 0}
   cannonType: 0
-  _canShoot: 1
 --- !u!114 &-418103147528304637
 MonoBehaviour:
   m_ObjectHideFlags: 0
