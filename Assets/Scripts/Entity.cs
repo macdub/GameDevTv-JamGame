@@ -12,8 +12,9 @@ public class Entity : MonoBehaviour
     private LevelManager _levelManager;
     private ItemDropper _itemDropper;
 
-    private void Awake()
+    private protected void Awake()
     {
+        Debug.Log($"LOADING: {gameObject.name}");
         _levelManager = FindObjectOfType<LevelManager>();
         _itemDropper = GetComponent<ItemDropper>();
     }

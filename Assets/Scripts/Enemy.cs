@@ -18,6 +18,7 @@ public class Enemy : Entity
 
     private void Awake()
     {
+        base.Awake();
         _detector = GetComponent<Detector>();
         _cannon = GetComponent<Cannon>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
